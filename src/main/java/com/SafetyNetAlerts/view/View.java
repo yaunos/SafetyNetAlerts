@@ -38,3 +38,34 @@
         Cette url doit retourner les adresses mail de tous les habitants de la ville.
 
  */
+
+package com.SafetyNetAlerts.view;
+
+import com.SafetyNetAlerts.model.Person;
+import com.google.gson.Gson;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+
+class fromJsonGson {
+
+    public static void main(String[] args) {
+        Gson gson = new Gson();
+
+        try (Reader reader = new FileReader("src/main/resources/data.json")) {
+            //On convertit le fichier Json en objet Java
+            //Data data = gson.fromJson(reader, Data.class);
+            Person person = gson.fromJson(reader, Person.class);
+
+            //On imprime les données Json
+            System.out.println(Person);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+}
+

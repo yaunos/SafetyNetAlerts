@@ -1,19 +1,26 @@
-/* package com.SafetyNetAlerts.controller;
+package com.SafetyNetAlerts.controller;
 
-@RestController
+import com.SafetyNetAlerts.model.Person;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
+
+@Controller
+@RequestMapping("/Persons/Children")
 
 public class SafetyNetAlertsController {
 
-    @GetMapping("/Persons")
-    /*
-        http://localhost:8080/firestation?stationNumber=<station_number>
+    @GetMapping
+    @ResponseBody
+    public String displayChildren() {
+        return "Voici la liste des enfants vivant à cette adresse\n";
+    }
 
-        Cette url doit retourner une liste des personnes couvertes par la caserne de pompiers correspondante.
-        Donc, si le numéro de station = 1, elle doit renvoyer les habitants couverts par la station numéro 1. La liste
-        doit inclure les informations spécifiques suivantes : prénom, nom, adresse, numéro de téléphone. De plus,
-        elle doit fournir un décompte du nombre d'adultes et du nombre d'enfants (tout individu âgé de 18 ans ou
-        moins) dans la zone desservie.
-    */
+
 
    //GetMapping("/Persons/Children")
     /*   --- Filter âge 18 ou moins puis faire une boucle des gens à la même adresse ---
@@ -38,6 +45,10 @@ public class SafetyNetAlertsController {
 
     /*
         http://localhost:8080/fire?address=<address>
+
+       // GET
+       //URI - /adresses/{adress}/persons
+       // method
 
         Cette url doit retourner la liste des habitants vivant à l’adresse donnée ainsi que le numéro de la caserne
         de pompiers la desservant. La liste doit inclure le nom, le numéro de téléphone, l'âge et les antécédents
@@ -65,5 +76,11 @@ public class SafetyNetAlertsController {
 
         Cette url doit retourner les adresses mail de tous les habitants de la ville.
     */
+    @GetMapping(path = "/personInfo/{city}")
+    @ResponseBody
+    public List<Person> displayAllEmailAddresses(@PathVariable String city) {
+        return "Voici la liste des enfants vivant à cette adresse\n";
+    }
 
-//}
+
+}

@@ -11,6 +11,5 @@ public class BusinessService {
         SafetyNetAlerts sna = new SafetyNetAlerts();
         return sna;
     }
-
 }
 
