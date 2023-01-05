@@ -16,22 +16,21 @@ public class MedicalRecordRepositoryImpl implements MedicalRecordRepository {
     private GlobalDataRepository globalDataRepository;
 
     @Override
+    public List<MedicalRecord> getMedicalRecordsFromDataSource() {
+        return null;
+    }
+
+    @Override
     public List<MedicalRecord> getMediCalRecordsFromFirstNameAndLastName(List<MedicalRecord> medicalRecords, String firstName, String lastName) {
         List<MedicalRecord> matchingMedicalRecordsList = new LinkedList<>();
 
-        for(MedicalRecord m: medicalRecords) {
-            if(m.getFirstName().equals(firstName) && m.getLastName().equals(lastName)) {
+        for (MedicalRecord m : medicalRecords) {
+            if (m.getFirstName().equals(firstName) && m.getLastName().equals(lastName)) {
                 matchingMedicalRecordsList.add(m);
             }
         }
         return matchingMedicalRecordsList;
     }
-
-    @Override
-    public List<MedicalRecord> getMedicalRecordsFromDataSource() {
-        List<MedicalRecord> medicalRecordsList = globalDataRepository.read().getMedicalrecords();
-        //return null;
-        return medicalRecordsList;
 
     @Override
     public List<MedicalRecord> getMedicalRecordsByAtLeastAge(List<MedicalRecord> medicalRecords, int minAge) {
@@ -45,8 +44,7 @@ public class MedicalRecordRepositoryImpl implements MedicalRecordRepository {
 
     @Override
     public void addMedicalRecordInDataSource(MedicalRecord medicalRecord) {
-        globalDataRepository.addMedicalRecord(medicalRecord);
-        return null;
+
     }
 
     @Override
