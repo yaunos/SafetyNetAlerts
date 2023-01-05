@@ -69,3 +69,4 @@ public class MedicalRecordRepositoryImpl implements MedicalRecordRepository {
         return 0;
     }
 }
+//

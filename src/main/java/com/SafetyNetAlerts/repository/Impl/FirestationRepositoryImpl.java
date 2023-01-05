@@ -50,3 +50,5 @@ public class FirestationRepositoryImpl implements FirestationRepository {
         globalDataRepository.deleteFirestation(address);
     }
 }
+
+//
