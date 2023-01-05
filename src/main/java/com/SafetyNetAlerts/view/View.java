@@ -59,7 +59,7 @@ class fromJsonGson {
             Person person = gson.fromJson(reader, Person.class);
 
             //On imprime les données Json
-            System.out.println(Person);
+            System.out.println(person);
         } catch (IOException e) {
             e.printStackTrace();
         }

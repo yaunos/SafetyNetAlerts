@@ -1,6 +1,9 @@
 package com.SafetyNetAlerts.repository.Impl;
 
+import com.SafetyNetAlerts.model.Firestation;
 import com.SafetyNetAlerts.model.GlobalData;
+import com.SafetyNetAlerts.model.MedicalRecord;
+import com.SafetyNetAlerts.model.Person;
 import com.SafetyNetAlerts.repository.GlobalDataRepository;
 import com.google.gson.Gson;
 import org.springframework.stereotype.Repository;
@@ -13,36 +16,90 @@ import java.util.Map;
 
 @Repository
 public class GlobalDataRepositoryImpl implements GlobalDataRepository {
+    // create Gson instance
+    Gson gson = new Gson();
+    public static void main(String[] args) {
 
+        GlobalDataRepositoryImpl gdr = new GlobalDataRepositoryImpl();
+
+        GlobalData globaldata = gdr.read();
+        System.out.println(globaldata);
+
+    }
     @Override
     public GlobalData read() {
         try {
             //create a variable globaldata
+            GlobalData globaldata;
 
-            globaldata Globaldata;
 
-            // create Gson instance
-            Gson gson = new Gson();
+
 
             // create a reader
-            Reader reader = Files.newBufferedReader(Paths.get("src/main/resources/data.json"));
+            String file = "src/main/resources/data.json";
+            String json = readFileToString(file);
 
-            // convert JSON file to map
-            globaldata = gson.fromJson(reader);
+            // convert JSON file to objects
+            globaldata = gson.fromJson(json, GlobalData.class);
 
-            // print map entries
-            for (Map.Entry<?, ?> entry : map.entrySet()) {
-                System.out.println(entry.getKey() + "=" + entry.getValue());
-            }
+            return globaldata;
 
-            // close reader
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }return null;
     }
 
+    private String readFileToString(String file) throws IOException {
+        return new String(Files.readAllBytes(Paths.get(file)));
+    }
+
     @Override
     public void write(GlobalData data) {
+
+    }
+
+    @Override
+    public void addPerson(Person person) {
+
+    }
+
+    @Override
+    public void updatePerson(Person person) {
+
+    }
+
+    @Override
+    public void deletePerson(String firstName, String lastName) {
+
+    }
+
+    @Override
+    public void addFirestation(Firestation firestation) {
+
+    }
+
+    @Override
+    public void updateFirestation(Firestation firestation) {
+
+    }
+
+    @Override
+    public void deleteFirestation(String address) {
+
+    }
+
+    @Override
+    public void addMedicalRecord(MedicalRecord medicalRecord) {
+
+    }
+
+    @Override
+    public void updateMedicalRecord(MedicalRecord medicalRecord) {
+
+    }
+
+    @Override
+    public void deleteMedicalRecord(String firstName, String lastName) {
 
     }
 }

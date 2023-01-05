@@ -7,14 +7,12 @@ public class Firestation {
     public long zip;
     public String phone;
 
-    public String getAddress() {
-        return address;
+    public String getAddress() { return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
     }
-
     public long getStation() {
         return station;
     }

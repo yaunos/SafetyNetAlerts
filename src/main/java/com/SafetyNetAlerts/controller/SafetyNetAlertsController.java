@@ -79,7 +79,9 @@ public class SafetyNetAlertsController {
     @GetMapping(path = "/personInfo/{city}")
     @ResponseBody
     public List<Person> displayAllEmailAddresses(@PathVariable String city) {
-        return "Voici la liste des enfants vivant à cette adresse\n";
+        //return List<Person>"Voici la liste des enfants vivant à cette adresse";
+        // doit retourner une liste de personnes
+        return null;
     }
 
 
