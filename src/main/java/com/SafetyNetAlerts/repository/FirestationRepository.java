@@ -21,4 +21,3 @@ public interface FirestationRepository {
 
     void deleteFirestationInDataSource(String address);
 }
-//

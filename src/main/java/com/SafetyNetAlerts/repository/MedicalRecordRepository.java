@@ -28,4 +28,3 @@ public interface MedicalRecordRepository {
     int countChildrenInAList(List<Person> persons, List<MedicalRecord> medicalRecords);
 }
 
-//
